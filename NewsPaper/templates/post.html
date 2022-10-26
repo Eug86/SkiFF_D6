@@ -1,0 +1,15 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'flatpages/default.html' %}
+{% load my_filter %}
+
+<!-- Название у нас будет Product -->
+{% block title %}
+Post
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим сам товар, идентификатор которого был передан в url -->
+{% block content %}
+<h2>{{ Post.title }}:</h2>
+<h3>---{{ Post.time_in|date:'d M Y' }}---</h3>
+<h1>{{ Post.text|censor }}</h1>
+{% endblock content %}
